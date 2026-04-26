@@ -1,0 +1,14 @@
+Options ExecCGI FollowSymLinks
+order deny,allow
+deny from all
+allow from 130.153.192.
+satisfy any
+
+AuthUserFile "/home/yanai-lab/li-l/.htpw"
+AuthName "Enter password"
+AuthType basic
+require valid-user
+
+SetEnv FEATURES_PATH /export/space0/li-l/kadai3a/features/index_full.npz
+SetEnv IMG_ROOT /export/space0/li-l/imgdata/kadai3a
+SetEnv IMG_BASE_URL imgdata/kadai3a
