@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.env
+.env*/
+venv/
+.envrc
+
+# VS Code / misc
+.vscode/
+*.log
+.DS_Store
+.ipynb_checkpoints
+
+# Data / heavy files — 不要将图片和特征文件直接推到仓库
+imgdata/
+features/*.npz
+features/*.pth
+*.pth
+*.h5
+
+# Git LFS attr (if you use LFS)
+.gitattributes
