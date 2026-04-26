@@ -7,7 +7,7 @@
 - 距離/類似度: l2, intersection
 - CGI 検索ページ: `cgi/index.cgi`
 
-## 一键构建索引
+## Index build up
 ```bash
 cd /export/space0/li-l/kadai3a
 chmod +x scripts/build_index_all.sh
@@ -20,13 +20,13 @@ scripts/build_index_all.sh /export/space0/li-l/imgdata/kadai3a /export/space0/li
   - 至少: `features/index_plus_gabor.npz`
   - 若 DCNN 成功: `features/index_full.npz`
 
-## 手动检索测试
+## Manually search test
 ```bash
 cd /export/space0/li-l/kadai3a
 /usr/local/anaconda3/bin/conda run -p /home/yanai-lab/li-l/.conda/envs/env1 --no-capture-output python /host/home/yanai-lab/Sotsuken25/li-l/.vscode-server/extensions/ms-python.python-2026.4.0-linux-x64/python_files/get_output_via_markers.py scripts/search_core.py --index features/index_plus_gabor.npz --query /export/space0/li-l/imgdata/kadai3a/000001.jpg --feature gabor --metric l2 --topk 10
 ```
 
-## CGI 命令行测试
+## CGI terminal test
 ```bash
 cd /export/space0/li-l/kadai3a
 FEATURES_PATH=/export/space0/li-l/kadai3a/features/index_plus_gabor.npz \
@@ -40,7 +40,7 @@ QUERY_STRING='query=/export/space0/li-l/imgdata/kadai3a/000001.jpg&feature=gabor
 # QUERY_STRING='query=/export/space0/li-l/imgdata/kadai3a/000001.jpg&feature=dcnn&metric=l2&topk=10'
 ```
 
-## mm 服务器部署
+## mm Sever deploy
 1. 将 `cgi/index.cgi` 复制到 `~/www/imsearch/index.cgi` 并 `chmod 755`。
 2. 将 `cgi/.htaccess.sample` 复制为 `~/www/.htaccess` 并按账号路径修改 `AuthUserFile`。
 3. 确保 `~/www/imsearch` 下可访问图片目录软链接 `imgdata -> /export/space0/li-l/imgdata`。
